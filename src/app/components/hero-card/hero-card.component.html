@@ -1,0 +1,6 @@
+<nz-card nzHoverable [nzCover]="coverTemplate">
+    <nz-card-meta [nzTitle]="hero.name" [nzDescription]="hero.primary_attr"></nz-card-meta>
+    <ng-template #coverTemplate>
+        <img alt="{{ hero.name }}" src="./assets/images/heroes/{{ hero.full_name }}.png" />
+    </ng-template>
+</nz-card>

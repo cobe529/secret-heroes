@@ -1,0 +1,15 @@
+<!-- <mat-grid-list cols="{{ cardsBreak }}" rowHeight="300px">
+    <mat-grid-tile *ngFor="let hero of heroes">
+        <app-hero-card [hero]="hero"></app-hero-card>
+    </mat-grid-tile>
+</mat-grid-list> -->
+
+<nz-list nzGrid>
+  <div nz-row [nzGutter]="16">
+    <div nz-col [nzXXl]="4" [nzXl]="4" [nzLg]="6" [nzMd]="8" [nzSm]="12" [nzXs]="24" *ngFor="let hero of heroes">
+      <nz-list-item>
+        <app-hero-card [hero]="hero"></app-hero-card>
+      </nz-list-item>
+    </div>
+  </div>
+</nz-list>
