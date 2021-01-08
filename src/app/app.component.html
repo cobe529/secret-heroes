@@ -1,53 +1,42 @@
-<!-- <div class="top-nav">
-  <span class="menu-icons">
-    <a *ngIf="collapseMenu"><i nz-icon nzType="menu" nzTheme="outline"></i></a>
-    <a [routerLink]="'/'">
-      <img src="./assets/images/santa.png" height="60" />
-    </a>
-  </span>
-  <span *ngIf="!collapseMenu" class="menu-choices">
-    <a [routerLink]="'/view-heroes'" routerLinkActive="active">Heroes</a>
-  </span>
-</div>
-<div class="container">
-  <router-outlet></router-outlet>
-</div> -->
-
 <nz-layout class="layout">
   <nz-layout>
     <div class="top-nav">
-      <span class="menu-icons">
+      <span class="menu-icons" nz-row nzJustify="space-between" nzAlign="middle">
         <div *ngIf="breakpoint === 'xs' || breakpoint === 'sm'" class="menu-wrap">
           <input type="checkbox" class="toggler" [(ngModel)]="expandMenu" />
           <div class="expand">
-            <div >
+            <div>
               <i nz-icon [nzType]="expandMenu ? 'close' : 'menu'" [ngClass]="expandMenu ? 'close-icon' : 'hamburger-icon'" nzTheme="outline"></i>
             </div>
           </div>
           <div class="menu">
-              <div>
-                <ul (click)="expandMenu = false">
-                  <li><a [routerLink]="'/'">Menu</a></li>
-                  <li><a [routerLink]="'/view-heroes'">Heroes</a></li>
-                </ul>
-              </div>
+            <div>
+              <ul (click)="expandMenu = false">
+                <li><a [routerLink]="'/'">Menu</a></li>
+                <li><a [routerLink]="'/view-heroes'">Heroes</a></li>
+                <li><a [routerLink]="'/whack-heroes'">Whack Heroes</a></li>
+                <li><a [routerLink]="'/whack-heroes'">Quizzes</a></li>
+              </ul>
+            </div>
           </div>
-        </div>
-        <div style="display: inline-block;">
-          <a [routerLink]="'/'">
-            <img src="./assets/images/logo2.png" height="60" />
-          </a>
-        </div>
-      </span>
-      <span *ngIf="breakpoint === 'md' || breakpoint === 'lg' || breakpoint === 'xl'" class="menu-choices">
+      </div>
+      <div>
+        <a [routerLink]="'/'">
+          <img src="./assets/images/logo2.png" height="60" />
+        </a>
+      </div>
+      <div *ngIf="breakpoint === 'md' || breakpoint === 'lg' || breakpoint === 'xl'" class="menu-choices">
         <a [routerLink]="'/view-heroes'" routerLinkActive="active">Heroes</a>
+        <a [routerLink]="'/whack-heroes'" routerLinkActive="active">Whack Heroes</a>
+        <a [routerLink]="'/whack-heroes'" routerLinkActive="active">Quizzes</a>
+      </div>
       </span>
     </div>
-    <nz-content>
-      <div class="inner-content">
+    <nz-content nz-row nzJustify="center">
+      <div class="inner-content" nz-col [nzXXl]="18" [nzXl]="20" [nzLg]="22" [nzMd]="24" [nzSm]="24" [nzXs]="24">
         <router-outlet></router-outlet>
       </div>
     </nz-content>
-    <nz-footer>Cobee Design © 2020</nz-footer>
+    <!-- <nz-footer>Cobee Design © 2020</nz-footer> -->
   </nz-layout>
 </nz-layout>

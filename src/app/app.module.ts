@@ -16,6 +16,7 @@ import { MainComponent } from './pages/main/main.component';
 import { ViewHeroesComponent } from './pages/view-heroes/view-heroes.component';
 import { HeroCardComponent } from './components/hero-card/hero-card.component';
 import { WhackHeroesComponent } from './pages/whack-heroes/whack-heroes.component';
+import { TimerComponent } from './components/timer/timer.component';
 
 registerLocaleData(en);
 
@@ -25,7 +26,8 @@ registerLocaleData(en);
     HeroCardComponent,
     MainComponent,
     ViewHeroesComponent,
-    WhackHeroesComponent
+    WhackHeroesComponent,
+    TimerComponent
   ],
   imports: [
     BrowserModule,

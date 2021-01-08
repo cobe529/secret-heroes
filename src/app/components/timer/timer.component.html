@@ -1,0 +1,14 @@
+<div class="container">
+    <i nz-icon nzType="clock-circle" nzTheme="outline"></i>
+    <span *ngIf="!seconds && !gameIsOver; else gameStarted">
+        <span class="game-status">Game Starting...</span>
+    </span>
+    <ng-template #gameStarted>
+        <span *ngIf="seconds > 0; else gameOver">
+            <span class="seconds">{{ seconds }}</span> s
+        </span>
+    </ng-template>
+    <ng-template #gameOver>
+        <span class="game-status">Game Over!</span>
+    </ng-template>
+</div>

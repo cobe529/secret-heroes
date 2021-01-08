@@ -8,13 +8,13 @@ import { filter, map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ResponsiveService implements OnDestroy {
-  mediaWatcher!: Subscription;
-  deviceSize!: string;
+  private _mediaWatcher!: Subscription;
+  public deviceSize!: string;
 
   constructor(public mediaObserver: MediaObserver) { }
 
-  ngOnDestroy() {
-    this.mediaWatcher.unsubscribe();
+  ngOnDestroy(): void {
+    this._mediaWatcher.unsubscribe();
   }
 
   getDeviceSize(): Observable<MediaChange> {

@@ -5,12 +5,12 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class HeroService {
-  private _openDotaUrl: string = "https://api.opendota.com/api/heroes"
+export class GameService {
+  private _gameTypeDirectory: string = "../../../assets/game-type"
 
   constructor(private http: HttpClient) { }
 
-  getHeroes(): Observable<[]> {
-    return this.http.get<[]>(this._openDotaUrl);
+  getWhackType(): Observable<[]> {
+    return this.http.get<[]>(`${this._gameTypeDirectory}/whack-type.json`);
   }
 }

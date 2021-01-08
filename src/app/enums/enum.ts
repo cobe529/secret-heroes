@@ -4,6 +4,11 @@ export enum HeroAttribute {
     str = 'Strength'
 }
 
+export enum AttackType {
+    Ranged = 'Ranged',
+    Melee = 'Melee'
+}
+
 export enum BreakPoint {
     xs = 'XS',
     sm = 'SM',

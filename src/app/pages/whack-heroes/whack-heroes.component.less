@@ -1,0 +1,100 @@
+@import '../../../styles.less';
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: @primary-4;
+    padding: 8px 15px;
+    border-radius: 5px;
+    flex-wrap: wrap;
+    border: 1px solid @primary-color;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 60px;
+    z-index: 1;
+    -webkit-box-shadow: 0px 0px 7px 1px rgba(96, 102, 97, 1);
+    -moz-box-shadow: 0px 0px 7px 1px rgba(96, 102, 97, 1);
+    box-shadow: 0px 0px 7px 1px rgba(96, 102, 97, 1);
+
+    div {
+        flex: 1;
+        border-radius: 0.2rem;
+        border-top: 0.25rem solid @primary-4;
+        border-bottom: 0.25rem solid @primary-4;
+    }
+
+    .info-board {
+        flex: 2;
+
+        .title {
+            color: @primary-color;
+            text-transform: uppercase;
+            margin-bottom: 0;
+        }
+    }
+
+    .score-board {
+        display: flex;
+
+        .score-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: @primary-1;
+            padding: 12px;
+
+            &:not(:first-child) {
+                margin-left: 10px;
+            }
+
+            .score-card-count {
+                font-size: 1.2em;
+                font-weight: 700;
+            }
+        }
+
+        .unwhacked-card {
+            background-color: @primary-color;
+        }
+
+        .correct-card {
+            background-color: @green-6;
+        }
+
+        .wrong-card {
+            background-color: @red-4;
+        }
+    }
+}
+  
+.container { 
+    position: relative;
+
+    .hero-image {
+        width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    .greened, .reded, .greyed {
+        position: absolute;
+        transition: all 0.3s ease;
+        opacity: 0.8;
+        top: 0;
+        height: 100%;
+        width: 100%;
+    }
+    
+    .greened {
+        background-color: @success-color;
+    }
+    
+    .reded {
+        background-color: @error-color;
+    }
+
+    .greyed {
+        background-color: @normal-color;
+    }
+}

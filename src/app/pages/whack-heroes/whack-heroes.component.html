@@ -1,1 +1,35 @@
-<p>Whack heroes with {{ randomAttr }} within 60 seconds!</p>
+<div class="game-info">
+  <div class="info-board">
+    <h3 class="title">Whack <strong>{{ whackValue }}</strong> heroes</h3>
+    <app-timer [seconds]="allocatedSeconds" [gameIsOver]="whackHeroScoreBoard.game_over" (gameOver)="gameOver()"></app-timer>
+  </div>
+  <div class="score-board">
+    <div class="score-card unwhacked-card">
+      <span *ngIf="!shrinkWhackHeroScoreBoard">Unwhacked</span>
+      <span class="score-card-count">{{ unwhackedHeroesCount }}</span>
+    </div>
+    <div class="score-card correct-card">
+      <span *ngIf="!shrinkWhackHeroScoreBoard">Correct</span>
+      <span class="score-card-count">{{ whackHeroScoreBoard.correct }}</span>
+    </div>
+    <div class="score-card wrong-card">
+      <span *ngIf="!shrinkWhackHeroScoreBoard">Wrong</span>
+      <span class="score-card-count">{{ whackHeroScoreBoard.wrong }}</span>
+    </div>
+  </div>
+</div>
+<nz-list nzGrid style="margin-top: 20px;">
+  <div nz-row [nzGutter]="16">
+    <div nz-col [nzXXl]="3" [nzXl]="4" [nzLg]="4" [nzMd]="6" [nzSm]="8" [nzXs]="12" *ngFor="let hero of whackHeroes">
+      <nz-list-item>
+        <div class="container"> 
+          <img class="hero-image" alt="{{ hero.name }}" src="./assets/images/heroes/{{ hero.full_name }}.png" (click)="whackHero(hero)" />
+          <div [ngClass]="hero.whacked
+            ? (hero.result ? 'greened' : 'reded')
+            : (whackHeroScoreBoard.game_over ? 'greyed' : '')">
+          </div> 
+        </div> 
+      </nz-list-item>
+    </div>
+  </div>
+</nz-list>
